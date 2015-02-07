@@ -15,7 +15,7 @@ DATABASES = {
 }
 
 LANGUAGE_CODE = 'en-us'
-ROOT_URLCONF = 'tests.urls'
+ROOT_URLCONF = 'test.urls'
 SECRET_KEY = 'local'
 SITE_ID = 1
 TIME_ZONE = 'UTC'

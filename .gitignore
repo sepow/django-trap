@@ -4,6 +4,7 @@
 .coverage
 .coveralls
 .DS_Store
+.ropeproject/
 .tox
 __pycache__
 build/

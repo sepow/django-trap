@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import sys
 from admin_honeypot import __version__, __description__, __license__
 
 try:
@@ -8,7 +7,7 @@ except ImportError:
     from distutils.core import setup, find_packages
 
 setup(
-    name='django-admin-honeypot',
+    name='django-trap',
     version=__version__,
     description=__description__,
     long_description=open('./README.rst', 'r').read(),
@@ -27,14 +26,15 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        ],
+    ],
     keywords='django admin honeypot trap',
-    maintainer='Derek Payton',
-    maintainer_email='derek.payton@gmail.com',
-    url='https://github.com/dmpayton/django-admin-honeypot',
-    download_url='https://github.com/dmpayton/django-admin-honeypot/tarball/v%s' % __version__,
+    maintainer='Mark Vasilkov',
+    maintainer_email='mvasilkov@gmail.com',
+    url='https://github.com/mvasilkov/django-trap',
+    download_url=('https://github.com/mvasilkov/django-trap/tarball/v%s' %
+                  __version__),
     license=__license__,
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
-    )
+)
