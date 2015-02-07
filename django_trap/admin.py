@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from admin_honeypot.models import LoginAttempt
+from django_trap.models import LoginAttempt
 
 
 class LoginAttemptAdmin(admin.ModelAdmin):

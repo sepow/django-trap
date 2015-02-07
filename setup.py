@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from admin_honeypot import __version__, __description__, __license__
+from django_trap import __version__, __description__, __license__
 
 try:
     from setuptools import setup, find_packages

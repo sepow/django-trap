@@ -10,5 +10,5 @@ __pycache__
 build/
 coverage.xml
 dist/
-django_admin_honeypot.egg-info/
+django_trap.egg-info/
 pep8.txt

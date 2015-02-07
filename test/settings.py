@@ -35,7 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'admin_honeypot',
+    'django_trap',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -44,6 +44,3 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
-
-
-ADMIN_HONEYPOT_EMAIL_ADMINS = True

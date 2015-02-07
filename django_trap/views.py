@@ -1,7 +1,7 @@
 import django
-from admin_honeypot.forms import HoneypotLoginForm
-from admin_honeypot.models import LoginAttempt
-from admin_honeypot.signals import honeypot
+from django_trap.forms import HoneypotLoginForm
+from django_trap.models import LoginAttempt
+from django_trap.signals import honeypot
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
@@ -10,7 +10,7 @@ from django.views import generic
 
 
 class AdminHoneypot(generic.FormView):
-    template_name = 'admin_honeypot/login.html'
+    template_name = 'django_trap/login.html'
     form_class = HoneypotLoginForm
 
     def dispatch(self, request, *args, **kwargs):
@@ -19,7 +19,7 @@ class AdminHoneypot(generic.FormView):
         # Django 1.7 redirects the user to an explicit login view with
         # a next parameter, so emulate that if needed.
         if django.VERSION >= (1, 7):
-            login_url = reverse('admin_honeypot:login')
+            login_url = reverse('django_trap:login')
             if request.path != login_url:
                 from django.contrib.auth.views import redirect_to_login
                 return redirect_to_login(request.get_full_path(), login_url)

@@ -1,8 +1,6 @@
 import django
 import pytest
-from admin_honeypot.models import LoginAttempt
-from django.conf import settings
-from django.core import mail
+from django_trap.models import LoginAttempt
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -19,8 +17,8 @@ class AdminHoneypotTest(TestCase):
     @property
     def honeypot_url(self):
         if django.VERSION >= (1, 7):
-            return reverse('admin_honeypot:login')
-        return reverse('admin_honeypot:index')
+            return reverse('django_trap:login')
+        return reverse('django_trap:index')
 
     def test_same_content(self):
         """
@@ -51,28 +49,16 @@ class AdminHoneypotTest(TestCase):
         self.assertEqual(data['password'], attempt.password)
         self.assertEqual(data['username'], str(attempt))
 
-    def test_email_admins(self):
-        """
-        An email is sent to settings.ADMINS
-        """
-        self.client.post(self.honeypot_url, {
-            'username': 'admin',
-            'password': 'letmein'
-        })
-        # CONSIDER: Is there a better way to do this?
-        self.assertTrue(len(mail.outbox) > 0)  # We sent at least one email...
-        self.assertIn(settings.ADMINS[0][1], mail.outbox[0].to)  # ...to an admin
-
     def test_trailing_slash(self):
         """
         /admin redirects to /admin/ permanent redirect.
         """
-        redirect_url = url = reverse('admin_honeypot:index') + 'foo/'
+        redirect_url = url = reverse('django_trap:index') + 'foo/'
 
         # Django 1.7 will redirect the user, but the ?next param will
         # have the trailing slash.
         if django.VERSION >= (1, 7):
-            redirect_url = reverse('admin_honeypot:login') + '?next=' + url
+            redirect_url = reverse('django_trap:login') + '?next=' + url
 
         response = self.client.get(url.rstrip('/'), follow=True)
         self.assertRedirects(response, redirect_url, status_code=301)

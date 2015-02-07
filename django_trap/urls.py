@@ -1,5 +1,5 @@
 import django
-from admin_honeypot import views
+from django_trap import views
 
 try:
     from django.conf.urls import patterns, include, url
