@@ -1,6 +1,5 @@
 *.egg
 *.py[co]
-*.komodoproject
 .cache/
 .coverage
 .coveralls
@@ -11,5 +10,4 @@ build/
 coverage.xml
 dist/
 django_admin_honeypot.egg-info/
-docs/_build/
 pep8.txt
