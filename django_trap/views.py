@@ -1,3 +1,5 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 import django
 from django_trap.forms import HoneypotLoginForm
 from django_trap.models import LoginAttempt

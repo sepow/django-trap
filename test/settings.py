@@ -1,11 +1,11 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
-ADMINS = MANAGERS = (('Admin User', 'admin@example.com'))
 
 DATABASES = {
     'default': {

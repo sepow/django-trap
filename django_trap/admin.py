@@ -1,3 +1,5 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 

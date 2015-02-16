@@ -1,3 +1,5 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 import django
 import pytest
 from django_trap.models import LoginAttempt

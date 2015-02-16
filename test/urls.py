@@ -1,3 +1,5 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 try:
     from django.conf.urls import patterns, include, url
 except ImportError:  # django < 1.4

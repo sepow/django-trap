@@ -1,10 +1,12 @@
+# This file comes from admin_honeypot by Derek Payton (MIT license).
+# See https://github.com/dmpayton/django-admin-honeypot
 import django
 from django_trap import views
 
 try:
-    from django.conf.urls import patterns, include, url
+    from django.conf.urls import patterns, url
 except ImportError:  # django < 1.4
-    from django.conf.urls.defaults import patterns, include, url
+    from django.conf.urls.defaults import patterns, url
 
 
 urlpatterns = patterns('')
