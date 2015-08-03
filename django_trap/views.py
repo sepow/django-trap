@@ -1,6 +1,7 @@
 # This file comes from admin_honeypot by Derek Payton (MIT license).
 # See https://github.com/dmpayton/django-admin-honeypot
 import django
+from django.conf import settings
 from django_trap.forms import HoneypotLoginForm
 from django_trap.models import LoginAttempt
 from django_trap.signals import honeypot
@@ -14,6 +15,7 @@ from django.views import generic
 class AdminHoneypot(generic.FormView):
     template_name = 'django_trap/login.html'
     form_class = HoneypotLoginForm
+    store_pw = getattr(settings, 'DJANGO_TRAP_STORE_PW', False)
 
     def dispatch(self, request, *args, **kwargs):
         if not request.path.endswith('/'):
@@ -46,7 +48,7 @@ class AdminHoneypot(generic.FormView):
     def form_invalid(self, form):
         instance = LoginAttempt.objects.create(
             username=self.request.POST.get('username'),
-            password=self.request.POST.get('password'),
+            password=self.request.POST.get('password') if self.store_pw else _("<password not stored>"),
             session_key=self.request.session.session_key,
             ip_address=self.request.META.get('REMOTE_ADDR'),
             user_agent=self.request.META.get('HTTP_USER_AGENT'),
