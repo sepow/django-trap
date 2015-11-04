@@ -27,7 +27,7 @@ class AdminHoneypot(generic.FormView):
                 return redirect_to_login(request.get_full_path(), login_url)
         return super(AdminHoneypot, self).dispatch(request, *args, **kwargs)
 
-    def get_form(self, form_class):
+    def get_form(self, form_class=HoneypotLoginForm):
         return form_class(self.request, **self.get_form_kwargs())
 
     def get_context_data(self, **kwargs):
